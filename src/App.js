@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
@@ -48,7 +48,7 @@ function App() {
       };
 
   return (
-    // <Router>
+    <Router>
       <div className="App-Container" style={myStyle}>
         <Navbar
           title="{} Utils"
@@ -56,21 +56,21 @@ function App() {
           onThemeChange={handleThemeChange}
         />
         {alert && <Alert alert={alert} />}
-        {/* <Routes> */}
-          {/* <Route
+        <Routes>
+          <Route
             exact path="/"
-            element={ */}
+            element={
               <TextForm
                 title="Enter the Object to analyze below"
                 theme={theme}
                 showAlert={showAlert}
               />
-            {/* }
-          /> */}
-          {/* <Route exact path="/about" element={<About theme={theme} />} />
-        </Routes> */}
+            }
+          />
+          <Route exact path="/about" element={<About theme={theme} />} />
+        </Routes>
       </div>
-    // </Router>
+    </Router>
   );
 }
 

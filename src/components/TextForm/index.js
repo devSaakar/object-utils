@@ -18,11 +18,8 @@ function TextForm({title,theme,showAlert}) {
       };
 
     const handleMinify = ()=>{
-        let newText = text.split(/[ ]+/);
-        newText = newText.join('');
-        newText = newText.split(/\n+/);
-        newText = newText.join('');
-        setOutputText(newText);
+        let newText = text.split(/\s+/);
+        setOutputText(newText.join(''));
         showAlert("Minified","success");
     }
 
@@ -44,7 +41,7 @@ function TextForm({title,theme,showAlert}) {
             <button className="btn btn-primary mx-1" name='removeSpace'  onClick={handleMinify}>Minify</button>
             <div className="summary my-3">
                 <h1>Your Object Summary</h1>
-                <p>Your text contains {text.slice(-1)===' '?text.split(' ').length-1:text.split(' ').length} words and {text.length} characters</p>
+                <p>Your text contains {text.split(/\s+/).filter(element => element.length!==0).length} words and {text.length} characters</p>
                 <h2>{(0.008 * text.split(' ').length).toPrecision(4)} minutes read</h2>
             </div>
             
