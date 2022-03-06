@@ -1,17 +1,20 @@
 import React from "react";
 import "./style.css";
 import PropTypes from "prop-types";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 function Navbar({ title, theme, onThemeChange }) {
-  const location = useLocation().pathname;
+  // const location = useLocation().pathname;
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${theme ? "dark" : "light"} bg-${theme ? "dark" : "light"}`}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <a className="navbar-brand" href="#">
           {title}
-        </Link>
+        </a>
+        {/* <Link className="navbar-brand" to="/">
+          {title}
+        </Link> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -26,15 +29,18 @@ function Navbar({ title, theme, onThemeChange }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link ${location==='/'?'active':''}`} aria-current="page" to="/">
+              <a className={`nav-link`} aria-current="page" href="#">
                 Home
-              </Link>
+              </a>
+              {/* <Link className={`nav-link ${location==='/'?'active':''}`} aria-current="page" to="/">
+                Home
+              </Link> */}
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className={`nav-link ${location==='/about'?'active':''}`} to="/about">
                 About
               </Link>
-            </li>
+            </li> */}
           </ul>
 
           <div className="form-check form-switch mx-2">
